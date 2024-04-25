@@ -60,3 +60,12 @@ export interface WeatherCard {
   temperature: number
   description: string
 }
+
+export const fakeWeather = {
+  city: 'London',
+  country: 'GB',
+  date: 1714077455000,
+  image: 'http://openweathermap.org/img/w/04n.png',
+  temperature: 7,
+  description: 'overcast clouds',
+}
