@@ -4,10 +4,12 @@ import { map, Observable, tap } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { OpenWeather, WeatherCard } from './weather'
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherService {
+
   constructor(private httpClient: HttpClient) {}
 
   getWeather(city: string, country: string): Observable<WeatherCard> {
@@ -37,6 +39,6 @@ export class WeatherService {
   }
 
   private convertKelvinToCelsius(kelvin: number): number {
-    return Math.round(kelvin - 273.15)
+    return kelvin - 273.15
   }
 }

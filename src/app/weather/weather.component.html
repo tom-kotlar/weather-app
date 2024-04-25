@@ -1,1 +1,22 @@
-<p style="margin-top: 150px">weather works!</p>
+@if (weather) {
+  <p-card [style]="{ width: '360px' }">
+    <div class="flex">
+      <h1>📍 {{ weather.city }}, {{ weather.country }}</h1>
+    </div>
+
+    <div class="flex flex-column">
+        <div class="flex align-items-center">
+            <h1> 🌡️ {{ weather.temperature | number: '1.0-0' }}</h1>
+            <h1>°C </h1>
+            <img width="80px" [src]="weather.image" [alt]="weather.description" />
+        </div>
+        <h5 class="m-0">{{ weather.description }}</h5>
+    </div>
+
+    <h2>{{ weather.date | date: 'EEEE' }} {{ weather.date | date: 'MMM d' }}</h2>
+
+    <ng-template pTemplate="footer"> </ng-template>
+  </p-card>
+} @else {
+  <div>no data</div>
+}
