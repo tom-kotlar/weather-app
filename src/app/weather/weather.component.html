@@ -1,4 +1,8 @@
-@if (weather) {
+<div class="flex flex-column align-items-center">
+  
+<app-city-search></app-city-search>
+
+@if (current$ | async; as weather) {
   <p-card [style]="{ width: '360px' }">
     <div class="flex">
       <h1>📍 {{ weather.city }}, {{ weather.country }}</h1>
@@ -13,10 +17,11 @@
         <h5 class="m-0">{{ weather.description }}</h5>
     </div>
 
-    <h2>{{ weather.date | date: 'EEEE' }} {{ weather.date | date: 'MMM d' }}</h2>
+    <h2>{{ weather.date | date: 'EEEE' }}, {{ weather.date | date: 'MMM d' }}</h2>
 
     <ng-template pTemplate="footer"> </ng-template>
   </p-card>
 } @else {
   <div>no data</div>
 }
+</div>
