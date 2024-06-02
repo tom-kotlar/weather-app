@@ -1,0 +1,16 @@
+<div class="flex flex-column gap-2 mb-5">
+  <label for="city-search">Enter your city or postal code.</label>
+  <input
+    type="text"
+    pInputText
+    class="{ng-invalid: search.invalid && (search.dirty || search.touched)}"
+    [formControl]="search"
+    id="city-search"
+    aria-describedby="search-help" />
+  
+  @if (search.invalid && (search.dirty || search.touched)) {
+   <small id="search-help">City must be at least 2 characters long.</small> 
+   <small id="search-help"> Postal  must be at least 2 characters long</small>
+  }
+
+</div>
